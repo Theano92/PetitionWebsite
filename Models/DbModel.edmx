@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MyWorldModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cause">
+          <Key>
+            <PropertyRef Name="CauseID" />
+          </Key>
+          <Property Name="CauseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Category" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="50" />
+          <Property Name="ExplaineIssue" Type="varchar(max)" Nullable="false" />
+          <Property Name="Image" Type="varbinary(max)" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Signature">
+          <Key>
+            <PropertyRef Name="SignatureID" />
+          </Key>
+          <Property Name="SignatureID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CauseID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmailID" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_Cause_dbo_User_UserID">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Cause" Type="Self.Cause" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Cause">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Signature_dbo_Cause_CauseID">
+          <End Role="Cause" Type="Self.Cause" Multiplicity="1" />
+          <End Role="Signature" Type="Self.Signature" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cause">
+              <PropertyRef Name="CauseID" />
+            </Principal>
+            <Dependent Role="Signature">
+              <PropertyRef Name="CauseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Signature_dbo_User_UserID">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Signature" Type="Self.Signature" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Signature">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MyWorldModelStoreContainer">
+          <EntitySet Name="Cause" EntityType="Self.Cause" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Signature" EntityType="Self.Signature" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_Cause_dbo_User_UserID" Association="Self.FK_dbo_Cause_dbo_User_UserID">
+            <End Role="User" EntitySet="User" />
+            <End Role="Cause" EntitySet="Cause" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Signature_dbo_Cause_CauseID" Association="Self.FK_dbo_Signature_dbo_Cause_CauseID">
+            <End Role="Cause" EntitySet="Cause" />
+            <End Role="Signature" EntitySet="Signature" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Signature_dbo_User_UserID" Association="Self.FK_dbo_Signature_dbo_User_UserID">
+            <End Role="User" EntitySet="User" />
+            <End Role="Signature" EntitySet="Signature" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MyWorldModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmailID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Cause" Relationship="MyWorldModel.FK_dbo_Cause_dbo_User_UserID" FromRole="User" ToRole="Cause" />
+          <NavigationProperty Name="Signature" Relationship="MyWorldModel.FK_dbo_Signature_dbo_User_UserID" FromRole="User" ToRole="Signature" />
+        </EntityType>
+        <EntityContainer Name="MyWorldEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="User" EntityType="Self.User" />
+          <EntitySet Name="Cause" EntityType="MyWorldModel.Cause" />
+          <AssociationSet Name="FK_dbo_Cause_dbo_User_UserID" Association="MyWorldModel.FK_dbo_Cause_dbo_User_UserID">
+            <End Role="User" EntitySet="User" />
+            <End Role="Cause" EntitySet="Cause" />
+          </AssociationSet>
+          <EntitySet Name="Signature" EntityType="MyWorldModel.Signature" />
+          <AssociationSet Name="FK_dbo_Signature_dbo_Cause_CauseID" Association="MyWorldModel.FK_dbo_Signature_dbo_Cause_CauseID">
+            <End Role="Cause" EntitySet="Cause" />
+            <End Role="Signature" EntitySet="Signature" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Signature_dbo_User_UserID" Association="MyWorldModel.FK_dbo_Signature_dbo_User_UserID">
+            <End Role="User" EntitySet="User" />
+            <End Role="Signature" EntitySet="Signature" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Cause">
+          <Key>
+            <PropertyRef Name="CauseID" />
+          </Key>
+          <Property Name="CauseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Category" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ExplaineIssue" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="MyWorldModel.FK_dbo_Cause_dbo_User_UserID" FromRole="Cause" ToRole="User" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Signature" Relationship="MyWorldModel.FK_dbo_Signature_dbo_Cause_CauseID" FromRole="Cause" ToRole="Signature" />
+        </EntityType>
+        <Association Name="FK_dbo_Cause_dbo_User_UserID">
+          <End Type="MyWorldModel.User" Role="User" Multiplicity="1" />
+          <End Type="MyWorldModel.Cause" Role="Cause" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Cause">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Signature">
+          <Key>
+            <PropertyRef Name="SignatureID" />
+          </Key>
+          <Property Name="SignatureID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CauseID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Cause" Relationship="MyWorldModel.FK_dbo_Signature_dbo_Cause_CauseID" FromRole="Signature" ToRole="Cause" />
+          <NavigationProperty Name="User" Relationship="MyWorldModel.FK_dbo_Signature_dbo_User_UserID" FromRole="Signature" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_dbo_Signature_dbo_Cause_CauseID">
+          <End Type="MyWorldModel.Cause" Role="Cause" Multiplicity="1" />
+          <End Type="MyWorldModel.Signature" Role="Signature" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cause">
+              <PropertyRef Name="CauseID" />
+            </Principal>
+            <Dependent Role="Signature">
+              <PropertyRef Name="CauseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Signature_dbo_User_UserID">
+          <End Type="MyWorldModel.User" Role="User" Multiplicity="1" />
+          <End Type="MyWorldModel.Signature" Role="Signature" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Signature">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MyWorldModelStoreContainer" CdmEntityContainer="MyWorldEntities">
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="MyWorldModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cause">
+            <EntityTypeMapping TypeName="MyWorldModel.Cause">
+              <MappingFragment StoreEntitySet="Cause">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="ExplaineIssue" ColumnName="ExplaineIssue" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="CauseID" ColumnName="CauseID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Signature">
+            <EntityTypeMapping TypeName="MyWorldModel.Signature">
+              <MappingFragment StoreEntitySet="Signature">
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="CauseID" ColumnName="CauseID" />
+                <ScalarProperty Name="SignatureID" ColumnName="SignatureID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

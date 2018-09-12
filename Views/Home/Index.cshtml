@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<br />
+<br />
+
+<div class="jumbotron text-center">
+    <div class="container">
+        <h1>Support the New World</h1>
+        <p class="lead">Your vote can make the difference! </p>
+        <p><a href="@Url.Action("CreateCause", "Home")" class="btn btn-petition btn-lg">Start a petition</a></p>
+    </div>
+</div>
+<div class="container">
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="holder col-sm-8">
+                    <img class="img-responsive" src="~/Content/images/kids.jpg" alt="kids">
+                </div>
+                <div class="col-sm-4">
+                    <div class="carousel-caption">
+                        <h2>Respect the Rights of Young Refugees</h2>
+                        <p>We are three volunteers who met whilst working in the 'Jungle' refugee camp in Calais. We were present during the closure of the camp and witnessed first-hand the failure of the French and U.K. governments to implement any comprehensive plans to safeguard these children before, during or after the evictions. We started this campaign and petition, because since the camp’s closure we have remained in contact with minors and have been shocked by the neglectful treatment they suffered - both in their day-to-day lives and in their dealings with the Home Office.</p>
+                        <button type="button" class="btn btn-petition btn-lg foo">Sign Now</button>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="holder col-sm-8">
+                    <img class="img-responsive" src="~/Content/images/wolf.jpg" alt="animal">
+                </div>
+                <div class="col-sm-4">
+                    <div class="carousel-caption">
+                        <h2>Do Not Support Animal Abuse!</h2>
+                        <p>
+                            Governments, and Judges, please pay attention. Animal abuse is on the increase. People who abuse animals are not being punished properly for their crimes against these helpless, innocent beings.
+                            It doesn't matter if a person is having a bad day, has fallen on hard times, is an addict, is a sadist or whatever, it is not ok to hurt or injure an animal.
+                        </p>
+                        <a href="" class="btn btn-petition btn-lg">Sign Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="holder col-sm-8">
+                    <img class="img-responsive" src="~/Content/images/athletes.jpg" alt="athletes">
+                </div>
+                <div class="col-sm-4">
+                    <div class="carousel-caption">
+                        <h2>Protect Young Athletes from Sexual Abuse!</h2>
+                        <p>
+                            Our country listened in shock, anger and sadness as 156 young women shared their stories of abuse by Larry Nassar, former USA Gymnastics and Michigan State University doctor. How did he get away with abusing so many innocent children for so long? Because adults who knew made the conscious decision to ignore it.
+                        </p>
+                        <button type="button" class="btn btn-petition btn-lg">Sign Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="controllers col-sm-8 col-xs-12">
+            <!-- Controls -->
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>
+        </div>
+    </div>
+</div>
+

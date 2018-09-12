@@ -1,0 +1,233 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists s
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 800px;
+}
+
+
+/*Change the default color of the button start petition*/
+.btn-petition {
+    color: #ffffff;
+    background-color: #DC143C;
+    border-color: #d43f3a;
+    border-bottom: 4px solid #af4451;
+}
+
+
+.btn-petition:hover,
+.btn-petition:focus,
+.btn-petition:active,
+.btn-petition.active,
+.open .dropdown-toggle.btn-danger {
+    color: #ffffff;
+    background-color: #d6002b;
+    border-color: #ac2925;
+
+}
+
+/*Make the jumbotron bigger - change the default colour */
+.jumbotron {
+    padding: 100px 25px;
+    margin-bottom: 30px;
+    font-size: 21px;
+    font-weight: 200;
+    line-height: 2.1428571435;
+    color: white;
+    background: url(images/start-petition-bg.jpg) no-repeat center -20px;
+    background-size: 101% auto
+}
+
+/* Change the width of the image logo*/
+img.logo {
+    width: 80px;
+    
+}
+h1 {
+    position: relative;
+    top: 18px;
+    left: 10px;
+}
+
+ul.nav.navbar-nav.navbar-right{
+    padding-top: 30px;
+}
+ul.nav.navbar-nav.navbar-left {
+    padding-top: 30px;
+}
+
+
+/*Change the background-color of the navbar*/
+.navbar-inverse {
+    background-color: white;
+    border-color: #080808;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+        font-family: monospace;
+        font-size: 18px;
+        color: #DC143C;
+}
+
+/*Chanege the size of the logo on the navbar*/
+.navbar-inverse .navbar-brand {
+        font-size: 30px;
+        font-family: monospace;
+        color: #DC143C;
+}
+
+
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus {
+        color: #DC143C;
+        background-color: transparent;
+
+}
+
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+        color: #DC143C;
+        text-decoration: underline;
+        background-color: transparent;
+}
+
+
+.modal-title {
+       text-align: center;
+       font-weight: bold;
+       margin: 0;
+       line-height: 1.428571429;
+
+}
+
+.signUp {
+       text-align: center;
+}
+
+ .modal-content#SignInModal {
+       height: 450px;
+}
+
+.modal-content#SignUpModal {
+       height: 750px;
+}
+
+.containerWidth {
+     max-width: 640px;
+     margin-left: auto;
+     margin-right: auto;
+}
+h2.startPetition {
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 20px;
+
+}
+
+.carousel-caption {
+    position: relative;
+    left: 0%;
+    right: 0%;
+    bottom: 0px;
+    z-index: 10;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    color: #000;
+    text-shadow: none;
+
+
+}
+
+.carousel {
+    position: relative;
+}
+
+.controllers {
+    position: absolute;
+   
+}
+
+.carousel-control.left,
+.carousel-control.right {
+    background-image: none;
+}
+
+footer {
+    color: white;
+}
+footer section.quote {
+    background: #101011;
+    font-size: 1.875rem;
+    padding: 40px 0;
+}
+
+footer .containerWidth {
+        max-width: 1000px;
+}
+
+
+.quote_petition{
+    padding-top:20px;
+}
+
+div.row.social_media {
+    background-color: #454647;
+    
+}
+.container.links {
+    padding: 40px 0;
+    background-color: white;
+    color: black;
+}
+h5{
+    color: #737273;
+    font-size: 12px;
+    font-weight:bold;
+    letter-spacing: .144em;
+
+}
+ul {
+    list-style-type: none;
+}
+a{
+    color:black
+}
+.slidercontent{
+    color:white;
+}
+
+.padding-change {
+    padding-top: 70px;
+}
+h3{
+    text-align:center;
+}
+.article{
+    padding-top:30px;
+    font-size:20px;
+    text-align:center;
+    font-family:'Times New Roman', Times, serif;
+
+}
+#social-fb:active {
+    color: #3B5998;
+}

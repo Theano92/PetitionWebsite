@@ -1,0 +1,108 @@
+﻿@{
+    ViewBag.Title = "Browse";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<div class="container">
+    <div class="container-fluid">
+        <h2>BROWSE PETITION</h2>
+
+    </div>
+    <div class="row" id="top">
+        <div class="col-sm-4 col-xs-12">
+            <div class="panel panel-default text-center">
+                <div class="panel-heading">
+                    <img class="img-responsive" src="~/Content/images/wolf.jpg" alt="animal">
+                </div>
+                <div class="panel-body">
+                    <h3>Do not support <br />animal abuse</h3>
+                </div>
+                <div class="panel-footer">
+                    <h3>10.000</h3>
+                    <h4>supporters</h4>
+                    <a class="btn btn-petition" href="@Url.Action("SignPetition", "Home")" >Sign Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-xs-12">
+            <div class="panel panel-default text-center">
+                <div class="panel-heading">
+                    <img class="img-responsive" src="~/Content/images/athletes.jpg" alt="athlete">
+                </div>
+                <div class="panel-body">
+                    <h3>Protect young athletes from sexual abuse</h3>
+                </div>
+                <div class="panel-footer">
+                    <h3>32.235</h3>
+                    <h4>supporters</h4>
+                    <a class="btn btn-petition">Sign Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-xs-12">
+            <div class="panel panel-default text-center">
+                <div class="panel-heading">
+                    <img class="img-responsive" src="~/Content/images/kids.jpg" alt="refugees">
+                </div>
+                <div class="panel-body">
+                    <h3>Respect the rights of young refugees</h3>
+                </div>
+                <div class="panel-footer">
+                    <h3>42.235</h3>
+                    <h4>supporters</h4>
+                    <a class="btn btn-petition">Sign Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="load_more" class="row">
+        <div class="col-sm-4 col-xs-12">
+            <div class="panel panel-default text-center">
+                <div class="panel-heading">
+                    <img class="img-responsive" src="~/Content/images/brexit.jpg" alt="brexit">
+                </div>
+                <div class="panel-body">
+                    <h3>Cancel Brexit <br /><br /></h3>
+                </div>
+                <div class="panel-footer">
+                    <h3>10.000</h3>
+                    <h4>supporters</h4>
+                    <a class="btn btn-petition">Sign Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-xs-12">
+            <div class="panel panel-default text-center">
+                <div class="panel-heading">
+                    <img class="img-responsive" src="~/Content/images/trump.jpg" alt="trump">
+                </div>
+                <div class="panel-body">
+                    <h3>Impeach Trump<br />Sign the petition</h3>
+                </div>
+                <div class="panel-footer">
+                    <h3>32.235</h3>
+                    <h4>supporters</h4>
+                    <a class="btn btn-petition">Sign Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-xs-12">
+            <div class="panel panel-default text-center">
+                <div class="panel-heading">
+                    <img class="img-responsive" src="~/Content/images/turtle.jpg" alt="turtle">
+                </div>
+                <div class="panel-body">
+                    <h3>Supermarkets<br /> Stop using plastic bags</h3>
+                </div>
+                <div class="panel-footer">
+                    <h3>42.235</h3>
+                    <h4>supporters</h4>
+                    <a class="btn btn-petition">Sign Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="show" href="#load_more" class="btn btn-default">Load more</a>
+    <a id="hide" href="#top"class="btn btn-default">Show less</a>
+</div>

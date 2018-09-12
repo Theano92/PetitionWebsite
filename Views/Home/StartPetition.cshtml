@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Start a Petition";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+<div class="container">
+    <div class="containerWidth">
+        <h2 class="startPetition">START YOUR PETITION</h2>
+        <form>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">SELECT A CATEGORY*</label>
+                <select class="form-control" id="exampleFormControlSelect1" >
+                    <option>Animal Rights</option>
+                    <option>Corporate Accountability</option>
+                    <option>Education</option>
+                    <option>Environment</option>
+                    <option>Wildlife</option>
+                    <option>Health</option>
+                    <option>Human Rights</option>
+                    <option>Media, Arts, Culture</option>
+                    <option>Political</option>
+                    <option>Local Issues</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">TITLE OF YOUR PETITION*</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">EXPLAIN THE ISSUE AND OFFER A SOLUTION*</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">PHONE NUMBER</label> Optional and NEVER Published
+                <input type="text" class="form-control" id="exampleFormControlInput1">
+            </div>
+            <button type="submit" class="btn btn-petition btn-lg btn-block">Continue</button>
+        </form>
+    </div>
+</div>
